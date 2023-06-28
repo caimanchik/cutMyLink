@@ -2,7 +2,7 @@ import datetime
 
 from rest_framework import serializers
 
-from cutMyLink.settings import chars_choices
+from cutMyLink.settings import chars_choices, host
 from .models import Links
 
 
@@ -43,22 +43,21 @@ class LinkSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
     @staticmethod
-    def get(short_link):
+    def get(short_link, redirect=False):
         try:
-            print(short_link)
             link = Links.objects.get(short_url=short_link)
-            print(link.expires_at)
             if datetime.datetime.now().timestamp() > link.expires_at.timestamp():
                 raise KeyError('Срок действия ссылки истек')
         except Links.DoesNotExist:
             raise KeyError('Такой ссылки не существует')
 
-        link.hop_count += 1
-        link.save()
+        if redirect:
+            link.hop_count += 1
+            link.save()
 
         return {
             "url": link.url,
-            "short_url": link.short_url,
+            "short_url": host + link.short_url,
             "hop_count": link.hop_count,
             "expires_at": link.expires_at,
         }
@@ -75,7 +74,7 @@ class LinkSerializer(serializers.HyperlinkedModelSerializer):
 
         return {
             "url": link_obj.url,
-            "short_url": link_obj.short_url,
+            "short_url": host + link_obj.short_url,
             "hop_count": link_obj.hop_count,
             "expires_at": link_obj.expires_at,
         }

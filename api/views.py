@@ -2,6 +2,7 @@ from rest_framework import status, serializers
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from cutMyLink.settings import host
 from .serializers import LinkSerializer
 
 
@@ -25,12 +26,16 @@ class GetLink(APIView):
 
     @staticmethod
     def get(request):
-        serializer = LinkSerializer(data={'short_link': request.query_params.get('link')}, partial=True)
+        if request.query_params.get('link')[:len(host)] != host:
+            return Response({"message": 'Такой ссылки не существует'}, status=status.HTTP_404_NOT_FOUND)
+        serializer = LinkSerializer(data={'short_link': request.query_params.get('link')[len(host):]}, partial=True)
 
         try:
             if serializer.is_valid(raise_exception=True):
                 try:
-                    link = serializer.get(request.query_params.get('link'))
+                    link = serializer.get(
+                        request.query_params.get('link', host)[len(host):],
+                        bool(request.query_params.get('redirect', 0)))
                 except KeyError as e:
                     return Response({"message": ', '.join(e.args)}, status=status.HTTP_404_NOT_FOUND)
 

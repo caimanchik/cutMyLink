@@ -33,20 +33,17 @@
                         <div class="main__separator">
                             
                         </div>
-                        <button class="main__switcher">
+                        <button class="main__switcher check">
                             проверить
                         </button>
                     </div>
                     
                     <section class="main__generate main-section active">
                         
-                        <form action="" class="generate-form">
+                        <form action="" id="generate" class="generate-form active">
                             
                             <div class="generate-form__url">
-                                <!-- <div class="generate-form__url-title">
-                                    Вставьте ссыл
-                                </div> -->
-                                <input type="text" class="input form__url ys" placeholder="Введите url">
+                                <input type="text" name="url" class="input form__url ys" placeholder="введите url">
                             </div>
                             
                             <div class="generate-form__expires">
@@ -57,20 +54,20 @@
                                     
                                     <div class="form-exp__inputs">
                                         <div class="form-exp__input-wrap">
-                                            <input id="days" type="text" class="input form-exp__input" value="1">
+                                            <input id="days" name="days" type="text" class="input form-exp__input" value="1">
                                             <label for="days">
                                                 <div class="form-exp__name">дни</div>
                                             </label>
                                         </div>
                                         <div class="form-exp__input-wrap">
-                                            <input id="hours" type="text" class="input form-exp__input" value="0">
+                                            <input id="hours" name="hours" type="text" class="input form-exp__input" value="0">
                                             <label for="hours">
                                                 <div class="form-exp__name">часы</div>
                                             </label>
                                         </div>
                                         <div class="form-exp__input-wrap">
-                                            <input id="min" type="text" class="input form-exp__input" value="0">
-                                            <label for="min">
+                                            <input id="minutes" name="minutes" type="text" class="input form-exp__input" value="0">
+                                            <label for="minutes">
                                                 <div class="form-exp__name">минуты</div>
                                             </label>
                                         </div>
@@ -78,19 +75,118 @@
                                 </div>
                             </div>
                             
-                            <div class="generate-form button-wrap">
-                                <button class="send" type="submit">
+                            <div class="generate-form__button button-wrap active">
+                                <button class="send" type="submit" id="generate-submit">
                                     LET'S GO
                                 </button>
                             </div>
                             
                         </form>
                         
+                        <div class="loader generate-loader">
+                            <img src="{% static 'img/loader.svg' %}" alt="" class="loader-img">
+                        </div>
+                        
+                        <div class="generate-result">
+                            
+                            <div class="generate-result__body">
+                                <div class="generate-result__original">
+                                    <div class="generate-result-orig-title">
+                                        сокращенная ссылка для
+                                    </div>
+                                    <div class="generate-result-orig">
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="generate-result__result">
+                                    <span class="generate-result__link"></span>
+                                    
+                                    <div class="generate-result__copy">
+                                        <img src="{% static 'img/copy.png' %}" alt="" srcset="">
+                                    </div>
+                                </div>
+                                
+                                <div class="generate-result-live-wrap">
+                                    <span>ссылка доступна до</span> <span class="generate-result-live"></span>
+                                </div>
+                                
+                                <div class="generate-form__button button-wrap active">
+                                    <button class="send" type="submit" id="new-generate">
+                                        сгенерировать ещё
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
                     </section>
-
+                    
+                    <section class="main__check main-section">
+                        <form action="" id="check-form" class="check-form active">
+                        
+                            <div class="generate-form__url">
+                                <input type="text" name="url" class="input check-url ys" placeholder="введите url">
+                            </div>
+                            
+                            <div class="error">
+                            
+                            </div>
+                            
+                            <div class="generate-form__button button-wrap active">
+                                <button class="send" type="submit" id="check-submit">
+                                    LET'S GO
+                                </button>
+                            </div>
+                            
+                        </form>
+                        
+                        <div class="loader check-loader">
+                            <img src="{% static 'img/loader.svg' %}" alt="" class="loader-img">
+                        </div>
+                        
+                        <div class="check-result">
+                        
+                            <div class="generate-result__body">
+                                <div class="generate-result__original">
+                                    <div class="generate-result-orig-title">
+                                        сокращенная ссылка для
+                                    </div>
+                                    <div class="check-result-orig">
+                                    </div>
+                                </div>
+                        
+                                <div class="generate-result__result">
+                                    <span class="check-result__link"></span>
+                        
+                                    <div class="check-result__copy">
+                                        <img src="{% static 'img/copy.png' %}" alt="" srcset="">
+                                    </div>
+                                </div>
+                                
+                                <div class="generate-result-live-wrap">
+                                    <span>количество переходов:</span> <span class="check-result-hops"></span>
+                                </div>
+                        
+                                <div class="generate-result-live-wrap">
+                                    <span>ссылка доступна до</span> <span class="check-result-live"></span>
+                                </div>
+                        
+                                <div class="generate-form__button button-wrap active">
+                                    <button class="send" id="new-check">
+                                        проверить ещё
+                                    </button>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        
+                    </section>
                 </div>
             </main>
         </div>
     </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

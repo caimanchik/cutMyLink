@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Yekaterinburg"
 
 USE_I18N = True
 
@@ -134,3 +134,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 chars_choices = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 link_len = 10
+
+host = 'http://127.0.0.1:8000/'
