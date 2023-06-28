@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>CUT MY LINK</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <header class="header">
+                <div class="header__row">
+                    <div class="header__logo">
+                        <img src="{% static 'img/big_logo.png'%}" alt="">
+                    </div>
+                    <div class="header__text ys bold">
+                        CUT MY LINK
+                    </div>
+                </div>
+            </header>
+            
+            <main class="main">
+                <div class="main__wrapper">
+                    <div class="redirect">
+                        Идет перенаправление
+                    </div>
+                </div>
+                <div class="error"></div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/redirect.js' %}"></script>
+</body>
+</html>

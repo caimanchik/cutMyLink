@@ -35,7 +35,7 @@ class GetLink(APIView):
                 try:
                     link = serializer.get(
                         request.query_params.get('link', host)[len(host):],
-                        bool(request.query_params.get('redirect', 0)))
+                        bool(int(request.query_params.get('redirect', 0))))
                 except KeyError as e:
                     return Response({"message": ', '.join(e.args)}, status=status.HTTP_404_NOT_FOUND)
 

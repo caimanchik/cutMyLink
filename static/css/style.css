@@ -456,3 +456,13 @@ label {
   color: red;
   margin: 2rem;
 }
+
+.redirect {
+  padding-top: 4rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.redirect.hidden {
+  display: none;
+}
