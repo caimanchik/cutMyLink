@@ -19,7 +19,11 @@ class LinkSerializer(serializers.ModelSerializer):
             for c in data['short_link']:
                 if c not in chars_choices: raise serializers.ValidationError('Некорректная ссылка')
         else:
-            if None in (data['url'], data['expires_data'], data['expires_data']['days'], data['expires_data']['hours'], data['expires_data']['minutes']):
+            if None in (
+                    data['url'], data['expires_data'],
+                    data['expires_data']['days'],
+                    data['expires_data']['hours'],
+                    data['expires_data']['minutes']):
                 raise serializers.ValidationError()
 
             try:
