@@ -25,8 +25,11 @@ SECRET_KEY = "django-insecure-!e0q&6l+ljp-xg4oj4m(zvlqn5+7c%(#(_rhv3mtccjz88e7sv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    'http://localhost:4200/',
+    '127.0.0.1',
+    '*',
+]
 
 # Application definition
 
@@ -37,7 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "api",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "cutMyLink.urls"
@@ -106,6 +112,9 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+
+# todo переделать разрешенные
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Static files (CSS, JavaScript, Images)

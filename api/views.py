@@ -6,7 +6,6 @@ from .serializers import LinkSerializer
 
 
 class CreateLink(APIView):
-    # todo
 
     @staticmethod
     def post(request):
@@ -23,4 +22,15 @@ class GetLink(APIView):
 
     @staticmethod
     def get(request):
-        LinkSerializer.get()
+        serializer = LinkSerializer(data=request.data)
+
+        if serializer.is_valid(raise_exception=True):
+            try:
+                link = serializer.get(request.data)
+            except KeyError as e:
+                return Response(e.args, status=status.HTTP_404_NOT_FOUND)
+
+            return Response(link, status=status.HTTP_200_OK)
+
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

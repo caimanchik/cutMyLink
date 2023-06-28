@@ -24,7 +24,7 @@ class LinkSerializer(serializers.ModelSerializer):
                     data['expires_data']['days'],
                     data['expires_data']['hours'],
                     data['expires_data']['minutes']):
-                raise serializers.ValidationError()
+                raise serializers.ValidationError('Представлены не все поля')
 
             try:
                 days, minutes, hours = \
@@ -32,11 +32,11 @@ class LinkSerializer(serializers.ModelSerializer):
                     int(data['expires_data']['hours']), \
                     int(data['expires_data']['minutes'])
 
-                if days == minutes == hours == 0:
-                    raise ValueError()
-
             except ValueError:
-                raise serializers.ValidationError()
+                raise serializers.ValidationError('Неверный формат данных')
+
+            if days == minutes == hours == 0:
+                raise serializers.ValidationError('Время действия ссылки не может быть равным нулю')
 
         return data
 
