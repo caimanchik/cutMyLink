@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Ysabeau+SC:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+a:visited,
+a:hover,
+a {
+  color: inherit;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+  background: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+  line-height: 1;
+  background-color: transparent;
+  color: inherit;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+  line-height: 1;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+html {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #000;
+  color: #ffeadf;
+}
+
+.ys {
+  font-family: 'Ysabeau SC', sans-serif;
+  
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  max-width: 1100px;
+  padding-top: 8rem;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+}
+
+.header__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2.5rem;
+}
+
+.header__logo {
+  width: 7.5rem;
+  aspect-ratio: 1;
+}
+
+.header__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.header__text {
+  font-size: 3rem;
+  
+}
+
+
+.main {
+  margin-top: 10rem;
+}
+
+
+.main__wrapper {
+}
+
+
+.main__selectors {
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: center;
+  margin: -1.5rem;
+}
+
+
+.main__switcher {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  height: 100%;
+  transition: all ease .4s;
+  border: 2px solid transparent;
+  border-left: none;
+  border-right: none;
+}
+
+.main__switcher:hover {
+  
+  border-color: #ffeadf;
+}
+
+.main__switcher.active {
+  background-color: #292929;
+  border-color: #ffeadf;
+}
+
+.main__separator {
+  min-height: 100%;
+  width: 2px;
+  background-color: #ffeadf;
+}
+
+.main__generate {
+  margin-top: 6rem;
+}
+
+.generate-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.generate-form__url-title {
+  
+}
+
+.generate-form__url {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.input {
+  width: 100%;
+  padding: 1rem;
+  background-color: #1f1f1f;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffeadf;
+  border-bottom: 2px solid transparent;
+  transition: all ease .3s;
+}
+
+.input::placeholder {
+  color: #bcaba2;
+  font-size: 1.5rem;
+}
+
+.input:focus {
+  border-color: #ffeadf;
+}
+
+.form__url {
+}
+
+.generate-form__expires {
+  margin-top: 3rem;
+}
+
+.form-exp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-exp__title {
+  font-size: 1.5rem;
+}
+
+.form-exp__inputs {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+.form-exp__input-wrap {
+  
+}
+
+.form-exp__input {
+  width: 8rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-exp__name {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+.generate-form {
+  margin-top: 5rem;
+}
+
+.send {
+  padding: 1rem 4rem;
+  border: 2px solid #ffeadf;
+  font-size: 1.8rem;
+  transition: all ease .3s;
+}
+
+.send:hover, .send:focus {
+  background-color: #454545;
+}
+
+label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.main-section {
+  display: none;
+}
+
+.main-section.active {
+  display: block;
+}

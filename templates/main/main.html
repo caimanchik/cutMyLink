@@ -1,0 +1,96 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <header class="header">
+                <div class="header__row">
+                    <div class="header__logo">
+                        <img src="{% static 'img/big_logo.png'%}" alt="">
+                    </div>
+                    <div class="header__text ys bold">
+                        CUT MY LINK
+                    </div>
+                </div>
+            </header>
+
+            <main class="main">
+                <div class="main__wrapper">
+
+                    <div class="main__selectors">
+                        <button class="main__switcher generate active">
+                            сгенерировать
+                        </button>
+                        <div class="main__separator">
+                            
+                        </div>
+                        <button class="main__switcher">
+                            проверить
+                        </button>
+                    </div>
+                    
+                    <section class="main__generate main-section active">
+                        
+                        <form action="" class="generate-form">
+                            
+                            <div class="generate-form__url">
+                                <!-- <div class="generate-form__url-title">
+                                    Вставьте ссыл
+                                </div> -->
+                                <input type="text" class="input form__url ys" placeholder="Введите url">
+                            </div>
+                            
+                            <div class="generate-form__expires">
+                                <div class="form-exp">
+                                    <div class="form-exp__title">
+                                        срок действия ссылки
+                                    </div>
+                                    
+                                    <div class="form-exp__inputs">
+                                        <div class="form-exp__input-wrap">
+                                            <input id="days" type="text" class="input form-exp__input" value="1">
+                                            <label for="days">
+                                                <div class="form-exp__name">дни</div>
+                                            </label>
+                                        </div>
+                                        <div class="form-exp__input-wrap">
+                                            <input id="hours" type="text" class="input form-exp__input" value="0">
+                                            <label for="hours">
+                                                <div class="form-exp__name">часы</div>
+                                            </label>
+                                        </div>
+                                        <div class="form-exp__input-wrap">
+                                            <input id="min" type="text" class="input form-exp__input" value="0">
+                                            <label for="min">
+                                                <div class="form-exp__name">минуты</div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="generate-form button-wrap">
+                                <button class="send" type="submit">
+                                    LET'S GO
+                                </button>
+                            </div>
+                            
+                        </form>
+                        
+                    </section>
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
