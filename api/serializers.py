@@ -6,24 +6,26 @@ from cutMyLink.settings import chars_choices
 from .models import Links
 
 
-class LinkSerializer(serializers.ModelSerializer):
+class LinkSerializer(serializers.HyperlinkedModelSerializer):
+    expires_data = serializers.DictField()
+    short_link = serializers.CharField()
 
     class Meta:
         model = Links
-        fields = '__all__'
+        fields = ('url', 'short_url', 'hop_count', 'expires_at', 'expires_data', 'short_link')
 
     def validate(self, data):
-        if data['short_link'] is not None:
+        if 'short_link' in data:
             if len(data['short_link']) != 10:
                 raise serializers.ValidationError('Некорректная ссылка')
             for c in data['short_link']:
                 if c not in chars_choices: raise serializers.ValidationError('Некорректная ссылка')
         else:
-            if None in (
-                    data['url'], data['expires_data'],
-                    data['expires_data']['days'],
-                    data['expires_data']['hours'],
-                    data['expires_data']['minutes']):
+            if 'url' not in data \
+                    or 'expires_data' not in data \
+                    or 'days' not in data['expires_data'] \
+                    or 'hours' not in data['expires_data'] \
+                    or 'minutes' not in data['expires_data']:
                 raise serializers.ValidationError('Представлены не все поля')
 
             try:
@@ -43,9 +45,10 @@ class LinkSerializer(serializers.ModelSerializer):
     @staticmethod
     def get(short_link):
         try:
-            link = Links.objects.get(short_url__exact=short_link)
-
-            if datetime.datetime.now() > link.expires_at:
+            print(short_link)
+            link = Links.objects.get(short_url=short_link)
+            print(link.expires_at)
+            if datetime.datetime.now().timestamp() > link.expires_at.timestamp():
                 raise KeyError('Срок действия ссылки истек')
         except Links.DoesNotExist:
             raise KeyError('Такой ссылки не существует')
@@ -53,16 +56,29 @@ class LinkSerializer(serializers.ModelSerializer):
         link.hop_count += 1
         link.save()
 
-        return link
+        return {
+            "url": link.url,
+            "short_url": link.short_url,
+            "hop_count": link.hop_count,
+            "expires_at": link.expires_at,
+        }
 
     def create(self, data):
 
-        url = data['full_url']
+        url = data['url']
         expires_at = LinkSerializer._get_expiration_date(data['expires_data'])
+        link_obj = Links()
+            # .objects.create(url=url, expires_at=expires_at)
+        link_obj.url = url
+        link_obj.expires_at = expires_at
+        link_obj.save()
 
-        link_obj = Links.objects.create(url=url, expires_at=expires_at)
-
-        return link_obj
+        return {
+            "url": link_obj.url,
+            "short_url": link_obj.short_url,
+            "hop_count": link_obj.hop_count,
+            "expires_at": link_obj.expires_at,
+        }
 
     @staticmethod
     def _get_expiration_date(exp_data):
