@@ -1,7 +1,7 @@
 # cutMyLink
 ## [Протестировать](https://cutml.pythonanywhere.com/)
 ### Приложение позволяет вам создать короткий url для вашей ссылки
-<img width="1904" alt="Снимок экрана 2023-06-29 в 04 57 42" src="https://github.com/caimanchik/cutMyLink/assets/79734984/2ef68170-d71c-4839-a8b4-cf1d96479346">
+<img width="1358" alt="Снимок экрана 2023-06-29 в 05 09 20" src="https://github.com/caimanchik/cutMyLink/assets/79734984/2a0915ae-b58c-466a-972c-4291a6ab98d0">
 
 ### Также, помимо визуального интерфейса, реализоавно API
 
