@@ -109,7 +109,9 @@ class GenerateForm {
     insertResult(result) {
         this.genOrig.innerHTML = result.url
         this.genLink.innerHTML = result.short_url
-        this.live.innerHTML = result.expires_at
+
+        let date = new Date(Date.parse(result.expires_at))
+        this.live.innerHTML = `${date.getDate() > 9 ? '' : '0'}${date.getDate()}.${date.getMonth() > 9 ? '' : '0'}${date.getMonth()}.${date.getFullYear()} ${date.getHours() > 9 ? '' : '0'}${date.getHours()}:${date.getMinutes() > 9 ? '' : '0'}${date.getMinutes()}`
     }
     
     isValid(fields) {
@@ -244,7 +246,8 @@ class CheckForm {
     insertResult(result) {
         this.checkOrig.innerHTML = result.url
         this.checkLink.innerHTML = result.short_url
-        this.live.innerHTML = result.expires_at
+        let date = new Date(Date.parse(result.expires_at))
+        this.live.innerHTML = `${date.getDate() > 9 ? '' : '0'}${date.getDate()}.${date.getMonth() > 9 ? '' : '0'}${date.getMonth()}.${date.getFullYear()} ${date.getHours() > 9 ? '' : '0'}${date.getHours()}:${date.getMinutes() > 9 ? '' : '0'}${date.getMinutes()}`
         this.hops.innerHTML = result.hop_count
     }
     

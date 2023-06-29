@@ -441,6 +441,29 @@ label {
   background-color: #ffeadf;
 }
 
+.check-result-live-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}
+
+.check-result-live {
+  position: relative;
+}
+
+.check-result-live:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -3px;
+  height: 1px;
+  width: 98%;
+  background-color: #ffeadf;
+}
+
 .check-form {
   margin-top: 5rem;
   display: none;

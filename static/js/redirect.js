@@ -21,6 +21,9 @@ class Redirect {
             this.redirect.classList.add('hidden')
             this.error.innerHTML = result.message
 
+            setTimeout(() => {
+                window.location.replace('http://127.0.0.1:8000')
+            }, 1500)
             return
         }
         
