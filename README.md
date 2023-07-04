@@ -1,15 +1,17 @@
 # cutMyLink
 ## [Протестировать](https://cutml.pythonanywhere.com/)
 ### Приложение позволяет вам создать короткий url для вашей ссылки
-<img width="1358" alt="Снимок экрана 2023-06-29 в 05 09 20" src="https://github.com/caimanchik/cutMyLink/assets/79734984/2a0915ae-b58c-466a-972c-4291a6ab98d0">
+<img width="986" alt="Снимок экрана 2023-07-04 в 13 46 54" src="https://github.com/caimanchik/cutMyLink/assets/79734984/af7442b6-8aa1-4058-8f95-decdc30e7dd0">
 
 ### Также, помимо визуального интерфейса, реализоавно API
 
 #### Для создания ссылки
-<img width="1358" alt="Снимок экрана 2023-06-29 в 04 58 54" src="https://github.com/caimanchik/cutMyLink/assets/79734984/d0859cc2-8bf9-4342-84e6-28acc67d41bf">
+<img width="1358" alt="Снимок экрана 2023-07-04 в 13 48 16" src="https://github.com/caimanchik/cutMyLink/assets/79734984/2a23cf6a-7449-4f7e-8e6e-c4bc372907b6">
+
 
 #### Для обратного получения длинной ссылки
-<img width="1358" alt="Снимок экрана 2023-06-29 в 04 59 07" src="https://github.com/caimanchik/cutMyLink/assets/79734984/f310ad00-3978-4bec-ab8f-f6c3f3ae294b">
+<img width="1358" alt="Снимок экрана 2023-07-04 в 13 47 51" src="https://github.com/caimanchik/cutMyLink/assets/79734984/0095a48a-4a90-4b62-b955-bfd814920f86">
+
 
 ### Стэк:
 Django 4.2.2
